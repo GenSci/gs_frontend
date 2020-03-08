@@ -25,7 +25,8 @@ export default {
     }
   },
   mounted() {
-    this.$http.get('http://localhost:8000/api/pages/10')
+    const url = `${this.$backEnd}pages/10`;
+    this.$http.get(url)
           .then(response =>  (
             this.title = response.data.title,
             this.sections = response.data.content

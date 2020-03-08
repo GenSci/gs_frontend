@@ -1,12 +1,19 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <nav-bar title="Gentlemen Scientists"/>
     <router-view/>
   </div>
 </template>
+
+
+<script>
+import Nav from './components/Nav.vue'
+export default {
+  components: {
+    'nav-bar': Nav
+  }
+}
+</script>
 
 <style lang="scss">
 #app {
@@ -34,5 +41,8 @@
 }
 html, body, #app {
   height: 100%;
+}
+.header {
+  background-image: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
 }
 </style>
