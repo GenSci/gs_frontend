@@ -1,12 +1,13 @@
-module.exports = {
-  "css": {
-    "loaderOptions": {
-      "sass": {
-        "prependData": "@import \"@/styles/_variables.scss\";"
-      }
-    }
-  },
-  "transpileDependencies": [
-    "vuetify"
-  ]
-}
+/**
+ * Vue Configuration File
+ */
+
+ module.exports = {
+     css: {
+         loaderOptions: {
+             sass: {
+                 prependData: `@import "@/styles/_variables.scss";`
+             }
+         }
+     }
+ }
