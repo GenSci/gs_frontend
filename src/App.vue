@@ -1,48 +1,60 @@
 <template>
-  <div id="app">
-    <nav-bar title="Gentlemen Scientists"/>
-    <router-view/>
-  </div>
+  <v-app>
+    <v-app-bar
+      app
+      color="primary"
+      dark
+    >
+      <div class="d-flex align-center">
+        <v-img
+          alt="Vuetify Logo"
+          class="shrink mr-2"
+          contain
+          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
+          transition="scale-transition"
+          width="40"
+        />
+
+        <v-img
+          alt="Vuetify Name"
+          class="shrink mt-1 hidden-sm-and-down"
+          contain
+          min-width="100"
+          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
+          width="100"
+        />
+      </div>
+
+      <v-spacer></v-spacer>
+
+      <v-btn
+        href="https://github.com/vuetifyjs/vuetify/releases/latest"
+        target="_blank"
+        text
+      >
+        <span class="mr-2">Latest Release</span>
+        <v-icon>mdi-open-in-new</v-icon>
+      </v-btn>
+    </v-app-bar>
+
+    <v-content>
+      <HelloWorld/>
+    </v-content>
+  </v-app>
 </template>
 
-
 <script>
-import Nav from './components/Nav.vue'
+import HelloWorld from './components/HelloWorld';
+
 export default {
+  name: 'App',
+
   components: {
-    'nav-bar': Nav
-  }
-}
+    HelloWorld,
+  },
+
+  data: () => ({
+    //
+  }),
+};
 </script>
-
-<style lang="scss">
-#app {
-  font-family: 'Montserrat', 'Lato', 'Roboto', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 10px;
-  height: 5%;
-  box-shadow: 0px 0px 6px 2px #a2a2a2;
-  z-index: -1;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
-html, body, #app {
-  height: 100%;
-}
-.header {
-  background-image: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
-}
-</style>
