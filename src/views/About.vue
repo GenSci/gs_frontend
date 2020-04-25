@@ -1,6 +1,6 @@
 <template>
   <div class="container about">
-    <h1 class="notification header is-h1">{{title}}</h1>
+    <h1 class="notification header is-size-1">{{title}}</h1>
     <div 
       v-bind:key="section.id" 
       v-for="section in sections" 

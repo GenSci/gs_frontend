@@ -43,6 +43,6 @@ html, body, #app {
   height: 100%;
 }
 .header {
-  background-image: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
+  background-image: $header-background;
 }
 </style>
