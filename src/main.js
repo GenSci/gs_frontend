@@ -5,7 +5,7 @@ import store from './store'
 import Axios from 'axios'
 
 
-const backEnd = 'http://localhost:8000/api/';
+const backEnd = 'http://192.168.1.13';
 
 Vue.config.productionTip = false;
 Vue.prototype.$http = Axios;

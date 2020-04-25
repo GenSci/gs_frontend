@@ -1,6 +1,6 @@
 <template>
   <div class="container about">
-    <h1 class="notification is-info">{{title}}</h1>
+    <h1 class="notification header is-h1">{{title}}</h1>
     <div 
       v-bind:key="section.id" 
       v-for="section in sections" 
@@ -25,7 +25,7 @@ export default {
     }
   },
   mounted() {
-    const url = `${this.$backEnd}pages/10`;
+    const url = `${this.$backEnd}/api/pages/4`;
     this.$http.get(url)
           .then(response =>  (
             this.title = response.data.title,

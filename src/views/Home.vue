@@ -23,11 +23,11 @@ export default {
     }
   },
   mounted() {
-    this.$http.get('http://localhost:8000/api/pages/3/')
+    this.$http.get(`${this.$backEnd}/api/pages/3/`)
     .then(response => response.data)
     .then(data => {
       this.styleObject = {
-        backgroundImage: `url(http://localhost:8000${data.background_image.meta.download_url})`,
+        backgroundImage: `url(${this.$backEnd}${data.background_image.meta.download_url})`,
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         };
@@ -43,7 +43,7 @@ export default {
     height: 95%;
   }
   .bg-image {
-    height: 100%;
+    height: 120%;
     filter: blur(2px);
     -webkit-filter: blur(2px);
   } 

@@ -1,5 +1,6 @@
 <template>
     <div class="content">
+        <blog-sidebar v-bind="posts"></blog-sidebar>
         <h1 class="is-size-2">The Blogs of Gentlemen Scientists</h1>
         <div class="container ">
             <div class="columns">
@@ -7,17 +8,18 @@
                     <blog-card v-bind="post"></blog-card>
                 </div>    
             </div>
-            
         </div>
     </div>
 </template>
 
 <script>
-import BlogCard from '../components/BlogCard.vue'
+import BlogCard from '../components/BlogCard'
+import BlogSidebar from '../components/BlogList_sidebar'
 export default {
     name: 'BlogListPage',
     components: {
         'blog-card': BlogCard,
+        'blog-sidebar': BlogSidebar,
     },
     data() {
         return {
@@ -26,7 +28,7 @@ export default {
     },
     mounted() {
         const additional_fields='post_title,post_image,post_summary'
-        const url = `${this.$backEnd}pages/?type=blog.BlogDetailPage&fields=${additional_fields}`
+        const url = `${this.$backEnd}/api/pages/?type=blog.BlogDetailPage&fields=${additional_fields}`
         this.$http.get(url)
         .then(response => response.data)
         .then(data => {
