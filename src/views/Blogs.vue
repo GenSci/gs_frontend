@@ -1,24 +1,26 @@
 <template>
     <div class="content">
-        <blog-sidebar v-bind="posts"></blog-sidebar>
-        <h1 class="is-size-2">The Blogs of Gentlemen Scientists</h1>
-        <div class="container ">
-            <div class="columns">
-                <div class="column" v-for="post in posts" :key="post.id">
-                    <blog-card v-bind="post"></blog-card>
-                </div>    
+        <div class="columns">
+            <div class="column is-one-quarter">
+                <blog-sidebar v-bind:posts="posts"></blog-sidebar>
             </div>
+            <div class="column">
+                <h1 class="is-size-2">The Blogs of Gentlemen Scientists</h1>
+                <router-view></router-view>
+            </div>
+                
+                
         </div>
+        
     </div>
 </template>
 
 <script>
-import BlogCard from '../components/BlogCard'
-import BlogSidebar from '../components/BlogList_sidebar'
+
+import BlogSidebar from '../components/Blog/BlogList_sidebar'
 export default {
     name: 'BlogListPage',
     components: {
-        'blog-card': BlogCard,
         'blog-sidebar': BlogSidebar,
     },
     data() {

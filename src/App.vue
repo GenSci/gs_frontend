@@ -1,16 +1,22 @@
 <template>
   <div id="app">
-    <nav-bar title="Gentlemen Scientists"/>
+    <nav-bar v-bind:links="nav_links" title="Gentlemen Scientists"/>
     <router-view/>
   </div>
 </template>
 
 
 <script>
-import Nav from './components/Nav.vue'
+import links from '@/router/links.js'
+import GenSciNav from '@/components/GenSciNav.vue'
 export default {
   components: {
-    'nav-bar': Nav
+    'nav-bar': GenSciNav
+  },
+  data() {
+    return {
+      nav_links: links.top_level
+    }
   }
 }
 </script>
@@ -24,21 +30,6 @@ export default {
   color: #2c3e50;
 }
 
-#nav {
-  padding: 10px;
-  height: 5%;
-  box-shadow: 0px 0px 6px 2px #a2a2a2;
-  z-index: -1;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
 html, body, #app {
   height: 100%;
 }
