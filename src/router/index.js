@@ -22,21 +22,21 @@ const routes = [
   },
   {
     path: '/blogs',
-    name: 'Blog',
+    name: '',
     component:() => import(/* webpackChunkName: "blogs" */'@/views/Blogs.vue'),
     props: true,
     children: [
       {
-        path: '/blog/:id',
+        path: ':id',
         name: 'BlogPost',
         component: () => import( /* webpackChunkName: "post" */ '@/components/Blog/BlogPost.vue'),
         props: true
       },
       {
         path: "",
-        name: 'BlogCards',
+        name: 'Blog',
         props: true,
-        component:() => import(/* webpackChunkName: "blogCards" */ '@/components/Blog/BlogCards.vue'),
+        component:() => import(/* webpackChunkName: "blog-cards" */ '@/components/Blog/BlogCards.vue'),
       }
     ]
   },

@@ -16,11 +16,13 @@ export default {
     components: {
         'blog-card': BlogCard,
     },
-    props: {
-        posts: {
-            type: Array,
-            required: true
+    data () {
+        return {
+            posts: []
         }
+    },
+    mounted () {
+        this.posts = this.$store.state.posts
     }
 }
 </script>

@@ -29,14 +29,30 @@ export default {
            required: true,
        }
    },
+   methods: {
+       getPost(id) {
+           const url = `${this.$backEnd}/api/pages/${id}/`;
+            this.$http.get(url)
+            .then(response => response.data)
+            .then(data => {
+                this.post = data
+            })
+       }
+   },
    mounted() {
-        const url = `${this.$backEnd}/api/pages/${this.id}/`;
-        this.$http.get(url)
-        .then(response => response.data)
-        .then(data => {
-            this.post = data
-        })
+       this.getPost(this.id)
+        // const url = `${this.$backEnd}/api/pages/${this.id}/`;
+        // this.$http.get(url)
+        // .then(response => response.data)
+        // .then(data => {
+        //     this.post = data
+        // })
     
+   },
+   watch: {
+       $route(to) {
+           this.getPost(to.params.id)
+       }
    }
 }
 </script>

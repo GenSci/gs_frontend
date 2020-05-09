@@ -17,8 +17,13 @@
 <script>
 export default {
     name: 'BlogSidebar',
-    props: {
-        posts: Array
+    data () {
+        return {
+            posts: []
+        }
+    },
+    mounted() {
+        this.posts = this.$store.state.posts
     }
 }
 </script>

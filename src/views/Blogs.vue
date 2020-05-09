@@ -2,7 +2,7 @@
     <div class="content">
         <div class="columns">
             <div class="column is-one-quarter">
-                <blog-sidebar v-bind:posts="posts"></blog-sidebar>
+                <blog-sidebar></blog-sidebar>
             </div>
             <div class="column">
                 <h1 class="is-size-2">The Blogs of Gentlemen Scientists</h1>
@@ -34,7 +34,7 @@ export default {
         this.$http.get(url)
         .then(response => response.data)
         .then(data => {
-            this.posts = data.items
+            this.$store.state.posts = data.items  // <- HAKCY - USE VUEX TO MANAGE STATE 
         })
     }
 }
